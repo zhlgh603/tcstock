@@ -8,6 +8,7 @@
 #include <QtGui/QSplashScreen>
 #include <QtGui/QCleanlooksStyle>
 #include <QtCore/QTranslator>
+#include <QtCore/QFileInfo>
 
 #include "tcdefine.h"
 #include "tcresource.h"
@@ -49,8 +50,8 @@ int main(int argc, char* argv[])
 	app.setFont(font);
 #endif
 
-	QTranslator translator;
-	sts = translator.load("./tcstock.qm");
+    QTranslator translator;
+    sts = translator.load(app.applicationDirPath()+"/tcstock.qm");
 	if (! sts) {
 		tcLogService::CreateLog(&app, "Error when load translate file");
 		return -1;
@@ -64,7 +65,7 @@ int main(int argc, char* argv[])
 	if (! tcObjService::Initialize(argc, argv)) {
 		tcLogService::CreateLog(&app, "Error when init object service.");
 		return -1;
-	}
+    }
 
 	tcMainWindow window(NULL);
 	window.showMaximized();
