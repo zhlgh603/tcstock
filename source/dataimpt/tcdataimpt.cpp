@@ -8,6 +8,7 @@
 #include "tcyahoowebimptsource.h"
 #include "tcfxjfileimptsource.h"
 #include "tcqianlongfileimptsource.h"
+#include "tctdximptsource.h"
 
 tcDataImporter::tcDataImporter()
 {
@@ -56,7 +57,9 @@ tcImportSource* tcDataImporter::CreateImportSource(int pIndex)
 	case 2:
 		return new tcFxjFileImportSource();
 		break;
-	//case 3:
+    case 3:
+        return new tcTdxImportSource();
+        break;
 	//	return new tcQianLongFileImportSource();
 	//	break;
 	default:
