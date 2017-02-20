@@ -96,18 +96,18 @@ void tcStockScene::drawBackground(QPainter *pPainter, const QRectF &pRect)
 			}
 		}
 		//draw the date text
-		pPainter->setPen(Qt::black);
-		QString itemtext;
-		for (i=0, j=0; i<scenerect.right(); i+=mViewModel->GetViewItemWidth(), j++) {
-			itemtext = mViewModel->GetViewItemText(j);
-			if (itemtext.length() > 0) {
-				pPainter->drawLine(i, xlinepos, i, xlinepos+3);
-				pPainter->drawText(i, xlinepos + 15, mViewModel->GetViewItemText(j));
-			}
-			if (mViewModel->IsCurrentItem(j)) {
-				pPainter->setPen(Qt::gray);
-			}
-		}
+//		pPainter->setPen(Qt::black);
+//		QString itemtext;
+//		for (i=0, j=0; i<scenerect.right(); i+=mViewModel->GetViewItemWidth(), j++) {
+//			itemtext = mViewModel->GetViewItemText(j);
+//			if (itemtext.length() > 0) {
+//				pPainter->drawLine(i, xlinepos, i, xlinepos+3);
+//				pPainter->drawText(i, xlinepos + 15, mViewModel->GetViewItemText(j));
+//			}
+//			if (mViewModel->IsCurrentItem(j)) {
+//				pPainter->setPen(Qt::gray);
+//			}
+//		}
 
 		//draw y line
 		qreal ylinepos = 0;

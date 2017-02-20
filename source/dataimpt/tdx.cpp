@@ -165,7 +165,7 @@ QStringList getStockList(const QString &path)
                );
         fflush(stdout);
 
-        QString stock = QString("%s,%s,%s")
+        QString stock = QString("%1,%2,%3")
                 .arg(tnf_item.dm)
                 .arg(tnf_item.mc)
                 .arg(tnf_item.sx);
@@ -175,38 +175,8 @@ QStringList getStockList(const QString &path)
         }
 
         memset(p, 0, len);
-    }
-}
 
-QStringList getStockHistoryValue(const QString &stockcode)
-{
-    QStringList result;
-    QString fileName = QString("E:/stocks/new_gxzq_v6/Vipdoc/sh/lday/sh%1.day").arg(stockcode);
-    QFile f(fileName);
-    if(!f.open(QIODevice::ReadOnly))
-    {
-        return;
-    }
-    int len = sizeof(tdx_lday);
-    tdx_lday lday;
-    char *p = (char *)&lday;
-    memset(p, 0, len);
-    while(len==f.read(p, len))
-    {
-//        QString value = QString("[%ld][%ld][%ld][%ld][%ld][%f][%ld][%ld]\n",
-//               lday->date,
-//               lday->open,
-//               lday->high,
-//               lday->low,
-//               lday->close,
-//               lday->amount,
-//               lday->vol,
-//               lday->reserv);
-//        fflush(stdout);
-        memset(p, 0, len);
         qApp->processEvents();
     }
-
-    return result;
-
 }
+

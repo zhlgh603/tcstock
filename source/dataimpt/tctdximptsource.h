@@ -53,6 +53,8 @@ private:
 
 	QString mReceivedData;
 
+    QString mPath;
+
 };
 
 #endif //tctdximptsource_h
